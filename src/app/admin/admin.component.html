@@ -1,0 +1,25 @@
+<h1>admin Dashboard works!!!</h1>
+<pre><h3>Create 4 Div elements
+  1.Grocery Management
+  2.Land management
+  3.customer records
+  4. scheduler records
+</h3></pre>
+
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <img src="{{itemImageUrl}}" alt="Product" width="80%">
+          <br><br>
+          <h3 class="card-title">Grocery Management</h3>
+        </div>
+        <div class="card-body">
+          <a  [routerLink]="['/maintain-products']" class="btn btn-success">Maintain Grocery</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

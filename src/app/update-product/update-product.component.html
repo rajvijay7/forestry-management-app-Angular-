@@ -1,0 +1,34 @@
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/maintain-products']" style="font-weight: 700;">
+      <i>Forestry Management App</i>
+    </a>
+  </div>
+</nav>
+<br>
+
+<h2>Update Product </h2>
+<form #addForm="ngForm"  (ngSubmit)="onSubmit()">
+<div class="form-group">
+  <label>Product Name</label>
+  <input type="text" class="form-control"  id="name"  [(ngModel)]="product.name" name="name" required>
+</div>
+<br>
+<div class="form-group">
+  <label>Description</label>
+  <input type="text" class="form-control"  id="description" [(ngModel)]="product.description" name="description" required>
+</div>
+<br>
+<div class="form-group">
+  <label>Price</label>
+  <input type="email" class="form-control"  id="price" [(ngModel)]="product.price" name="price" required>
+</div>
+<br>
+<div class="form-group">
+  <label>Quantity</label>
+  <input type="text" class="form-control" id="address" [(ngModel)]="product.quantity" name="quantity" required>
+</div>
+<br>
+<button  [disabled]="addForm.invalid" class="btn btn-success" type="submit">Update</button>
+</form>

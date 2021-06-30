@@ -1,0 +1,40 @@
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/admin']" style="font-weight: 700;">
+      <i>Forestry Management App</i>
+    </a>
+  </div>
+</nav>
+<br>
+
+
+<!--content-->
+<h2>List of Products </h2><br>
+<button [routerLink]="['/add-product']" class="btn btn-primary" type="submit">Add New Product</button><br><br>
+<table class="table">
+  <thead>
+    <tr class="table-dark">
+      <th>Product Id</th>
+      <th>Product Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Stock Availability</th>
+      <th>Edit</th>
+      <th>Remove</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-secondary" *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.quantity}}</td>
+      <td><button (click)="updateProduct(product.id)"  class="btn btn-warning" type="submit">Update</button></td>
+      <td><button (click)="deleteProduct(product.id)"class="btn btn-danger" type="submit">Delete</button></td>
+
+    </tr>
+  </tbody>
+</table>

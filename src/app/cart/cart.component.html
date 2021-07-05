@@ -1,9 +1,51 @@
-<h1>Cart page Works!</h1>
-<h4><pre>create a  table with following fields:
-1.Id
-2.Cart Item
-3.Quantity (with (+)and(-) buttons for increasing and decreasing the quantity) use script!
-4.Price (default price of product)
-5.Total Price
-</pre></h4>
-<button [routerLink]="['/customer-info']" type="button" class="btn btn-secondary">Proceed to CheckOut</button>
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/products']" style="font-weight: 700;">
+      <i>Forestry Management App</i>
+    </a>
+  </div>
+</nav>
+<br>
+
+<div class="container">
+  <h2> YOUR CART <i class="bi bi-cart-fill"></i> </h2><br>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Cart item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let cart of carts; index as i">
+        <td scope="row"> {{cart.cart_item}} </td>
+        <td> {{cart.price}} </td>
+        <td>
+          <form action="">
+            <input name="quantity" type="number" value="" [(ngModel)]="quantity">
+            <button class="btn btn-primary" (click)="calculate(i)" value="save">save</button>
+          </form>
+        </td>
+        <td> <button class="btn btn-danger" (click)="deleteCartItem(cart.id)">REMOVE ITEM</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h3>
+    TOTAL PRICE : {{totalPrice}}
+  </h3>
+  <table class="table">
+    <button (click)="placeOrder()" class="btn btn-primary" [routerLink]="['/customer-info']" role="button">PROCEED TO CHECKOUT</button>
+  </table>
+</div>

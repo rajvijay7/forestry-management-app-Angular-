@@ -1,0 +1,43 @@
+<!--Navigation Bar-->
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/admin']" style="font-weight: 700;">
+      <i>Forestry Management App</i>
+    </a>
+  </div>
+</nav>
+<br>
+  <h3>Orders page</h3>
+  <div class='table-responsive'>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Order number</th>
+          <th>cartItem</th>
+          <th>Quantity</th>
+          <th>TotalPrice</th>
+          <th>Name</th>
+          <th>email</th>
+          <th>Address</th>
+          <th>town</th>
+          <th>PostalCode</th>
+          <th>contact</th>
+          <th>Schedule the Delivery</th>
+          <th>delete the ORDER</th>
+        </tr>
+
+        <tr *ngFor="let order of orders">
+          <td>{{order.id}}</td>
+          <td>{{order.cartItem}}</td>
+          <td>{{order.quantity}}</td>
+          <td>{{order.totalPrice}}</td>
+          <td>{{order.name}}</td>
+          <td>{{order.email}}</td>
+          <td>{{order.address}}</td>
+          <td>{{order.town}}</td>
+          <td>{{order.postalCode}}</td>
+          <td>{{order.contact}}</td>
+          <td> <button class='btn btn-warning'> Schedule</button></td>
+          <td> <button class='btn btn-danger'> Delete Order </button></td>
+        </tr>
+      </thead>

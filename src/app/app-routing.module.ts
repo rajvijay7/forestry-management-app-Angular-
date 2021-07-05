@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminComponent } from './admin/admin.component';
 import { CartComponent } from './cart/cart.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+import { LandComponent } from './land/land.component';
 import { MaintainProductsComponent } from './maintain-products/maintain-products.component';
+import { OrderComponent } from './order/order.component';
 import { ProductsComponent } from './products/products.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ThanksMessageComponent } from './thanks-message/thanks-message.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
 
 const routes: Routes = [
-
-
+  { path: '', redirectTo: 'products', pathMatch: 'full' },
   { path: 'products', component: ProductsComponent },
   { path: 'cart', component: CartComponent},
   { path: 'customer-info', component: CustomerInfoComponent},
@@ -21,7 +26,15 @@ const routes: Routes = [
   { path: 'maintain-products', component: MaintainProductsComponent},
   { path: 'add-product', component: AddProductComponent},
   { path: 'scheduler', component: SchedulerComponent},
-  { path: 'update-product/:id', component: UpdateProductComponent}
+  { path: 'update-product/:id', component: UpdateProductComponent},
+  { path: 'land', component: LandComponent},
+  { path: 'search-bar/:name', component: SearchBarComponent},
+  { path: 'cart', component: CartComponent},
+  { path: 'customer-list', component: CustomerListComponent},
+  { path: 'add-customer', component: AddCustomerComponent},
+  { path: 'view-customer/:id', component: ViewCustomerComponent},
+  { path: 'orders', component: OrderComponent}
+
 ];
 
 @NgModule({

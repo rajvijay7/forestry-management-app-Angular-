@@ -13,6 +13,14 @@ import { SchedulerComponent } from './scheduler/scheduler.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { LandComponent } from './land/land.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { OrderComponent } from './order/order.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,7 +33,13 @@ import { UpdateProductComponent } from './update-product/update-product.componen
     MaintainProductsComponent,
     SchedulerComponent,
     AddProductComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    LandComponent,
+    SearchBarComponent,
+    CustomerListComponent,
+    AddCustomerComponent,
+    ViewCustomerComponent,
+    OrderComponent
 
   ],
   imports: [

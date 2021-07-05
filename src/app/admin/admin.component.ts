@@ -11,6 +11,7 @@ export class AdminComponent implements OnInit {
 
 
   itemImageUrl = '../assets/1.jfif';
+  itemImageUrl1 = '../assets/4.jpg';
   ngOnInit(): void {
   }
 

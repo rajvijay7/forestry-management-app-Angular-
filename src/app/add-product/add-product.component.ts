@@ -26,10 +26,12 @@ export class AddProductComponent implements OnInit {
 
 
   saveProduct(addForm: NgForm) {
-    this.productService.createProduct(this.product).subscribe(data => { console.log(data);
+    this.productService.createProduct(this.product).subscribe(data => {
+      console.log(data);
       alert("one new product added");
-      this.navigateToProducts(); },
-     (error: HttpErrorResponse) => { console.log(error); alert(error.message);addForm.reset();})
+      this.navigateToProducts();
+    },
+      (error: HttpErrorResponse) => { console.log(error); alert(error.message); addForm.reset(); })
 
   }
 

@@ -12,4 +12,6 @@ export class ThanksMessageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  itemImageUrl = '../assets/2.jpg';
+
 }

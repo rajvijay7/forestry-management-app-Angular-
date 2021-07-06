@@ -33,4 +33,10 @@ export class CartService {
   }
 
 
+  //Update a product(in admin- grocery management)
+  UpdateCart(cart: Cart): Observable<Object> {
+    return this.httpClient.put(`${this.baseURL}` + `/update`, cart);
+  }
+
+
 }

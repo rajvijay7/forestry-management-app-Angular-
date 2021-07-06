@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
-  private getProducts() {
+   getProducts() {
     this.productService.getProductList().subscribe(data => { this.products = data, console.log(data) });
   }
 
@@ -52,8 +52,8 @@ export class ProductsComponent implements OnInit {
 
     this.cartService.addToCart(this.cart).subscribe(data => {
       console.log(data);
-      alert("one new product added");
-    })
+      alert("one product added to cart");
+})
 
 
   }

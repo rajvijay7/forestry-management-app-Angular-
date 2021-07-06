@@ -28,7 +28,7 @@
         <td> {{cart.price}} </td>
         <td>
           <form action="">
-            <input name="quantity" type="number" value="" [(ngModel)]="quantity">
+            <input name="quantity"  value="number" [(ngModel)]="quantity[i]">
             <button class="btn btn-primary" (click)="calculate(i)" value="save">save</button>
           </form>
         </td>

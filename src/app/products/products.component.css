@@ -3,7 +3,7 @@
 }
 
 body{
-  background-image: linear-gradient(to right, rgb(241, 248, 200),  rgb(187, 248, 187));
+  background-image: linear-gradient(to right, rgb(234, 247, 214),  rgb(181, 255, 181));
 }
 
 form.example input[type=text] {
@@ -55,7 +55,7 @@ form.example::after {
 
 #border{
 
-  border: 1px inset linear-gradient(to right, rgb(241, 248, 200),  rgb(187, 248, 187));
+  border: 1px inset linear-gradient(to right, rgb(243, 247, 235),  rgb(223, 255, 223));
 }
 
 

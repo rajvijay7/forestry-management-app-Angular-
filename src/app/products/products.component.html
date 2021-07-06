@@ -1,5 +1,4 @@
 <!--header-->
-
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   <!-- Load icon library -->
@@ -11,7 +10,7 @@
   <!--Navigation Bar-->
   <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/products']" style="font-weight: 700;">
+      <a class="navbar-brand" (click)="getProducts()"  style="font-weight: 700;">
         <i>Forestry Management App </i><i class="bi bi-tree-fill"></i>
       </a>
       <button [routerLink]="['/cart']" style="margin-left: 150px ;" type="button" class="btn btn-dark"> Cart
@@ -28,10 +27,9 @@
 
 
   <!-- Heading -->
-
   <h3 id="hover" style="text-align: center;">Products
-    <!--Icon--><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-      class="bi bi-tree-fill" viewBox="0 0 16 16">
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-tree-fill"
+      viewBox="0 0 16 16">
       <path
         d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z" />
     </svg>
@@ -40,32 +38,12 @@
 
 
 
-  <!--search-->
-
+  <!--searchBar-->
   <form class="example" style="margin:auto;max-width:300px">
     <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="Search products..">
     <button (click)="getByName()" type="submit"><i class="fa fa-search"></i></button>
   </form>
   <br><br>
-
-
-
-
-
-
-  <!-- <form action="getByName(product.name)" class="example" style="margin:auto;max-width:300px">
-  <input type="text" placeholder="Search products..">
-  <button (click)="getByName(product.name)" type="submit"><i class="fa fa-search"></i></button>
-</form>
-<br><br> -->
-
-
-
-
-
-
-
-
 
 
 
@@ -86,43 +64,6 @@
         </div><br>
       </div>
     </div>
-
   </div>
-
-
 </body>
 
-<!-- <div class="row mt-5">
-  <div class="d-flex justify-content-center">
-    <!--*ngFor=""-->
-<!-- <div class="card text-center">
-      <div class="card-body">
-        <h5 class="card-title">Timber</h5>
-        <p class="card-text"> timber, is wood that has been processed into beams and planks, a stage in the process of
-          wood production</p>
-        <p class="card-text">$ 23 (per ton)</p>
-        <a href="#" class="btn btn-success">Add To Cart</a>
-      </div>
-      <div class="card-footer text-muted">
-        Available stock : 567 Tons
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- <div class="row mt-5">
-  <div class="col-md-4 mb-3">
-    <!--*ngFor=""-->
-<!-- <div class="card text-center">
-      <div class="card-body">
-        <h5 class="card-title">Product Name</h5>
-        <p class="card-text">Product Description</p>
-        <p class="card-text">Product Price</p>
-        <a href="#" class="btn btn-success">Add To Cart</a>
-      </div>
-      <div class="card-footer text-muted">
-        Quantity
-      </div>
-    </div> -->
-<!-- </div>
-</div> -->

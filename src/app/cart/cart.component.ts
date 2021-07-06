@@ -11,9 +11,11 @@ export class CartComponent implements OnInit {
 
   carts: Cart[] = [];
 
-  quantity = [];
+  quantity : any= [];
 
   totalPrice: number = 0;
+
+  cart: Cart = new Cart();
 
 
 
@@ -29,33 +31,10 @@ export class CartComponent implements OnInit {
 
   calculate(i: any) {
 
-    this.totalPrice = parseInt(this.carts[i].price) * parseInt(this.quantity[i]);
+    this.totalPrice += parseInt(this.carts[i].price) * parseInt(this.quantity[i]);
+
+    this.updateQuantity(i, this.quantity[i]);
   }
-
-
-
-
-
-
-
-  // public getTotalAmount(): Observable<number> {
-  //   return this.itemsInCartSubject.map((items: Product[]) => {
-  //     return items.reduce((prev, curr: Product) => {
-  //       return prev + curr.price;
-  //     }, 0);
-  //   });
-  // }
-
-
-
-
-
-
-
-
-
-
-
 
   deleteCartItem(id: number) {
     this.cartService.deleteCartItem(id).subscribe(data => {
@@ -63,6 +42,18 @@ export class CartComponent implements OnInit {
         alert("DO YOU WANT TO REMOVE THIS ITEM FROM CART?");
       this.getCartItems();
     }, error => console.log(console.error))
+  }
+
+  updateQuantity(i: any ,quantity: any){
+    this.cart = this.carts[i];
+    this.cart.quantity = quantity;
+    this.cart.total_price = String(parseInt(this.cart.price) * parseInt(quantity));
+    this.cartService.UpdateCart(this.cart).subscribe(data => {
+
+    }, error => console.log(error));
+
+
+
   }
 
 

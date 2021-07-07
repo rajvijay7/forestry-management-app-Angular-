@@ -2,39 +2,46 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
   <div class="container">
     <a class="navbar-brand" [routerLink]="['/admin']" style="font-weight: 700;">
-      <i>Forestry Management App</i>
+      <i>Forestry Management App</i><i class="bi bi-tree-fill"></i>
     </a>
+    <h3 style="text-align: center;"><i>INVENTORY</i> <i class="bi bi-house-fill"></i> </h3>
+    <button [routerLink]="['/add-product']" class="btn btn-outline-primary" type="submit"><b><i>Add New Product</i></b></button>
   </div>
 </nav>
-<br>
+
 
 
 <!--content-->
-<h2 style="text-align: center;">INVENTORY  <i class="bi bi-house-fill"></i> </h2><br>
-<button [routerLink]="['/add-product']" class="btn btn-primary" type="submit">Add New Product</button><br><br>
-<table class="table">
-  <thead>
-    <tr class="table-dark">
-      <th>Product Id</th>
-      <th>Product Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Stock Availability</th>
-      <th>Edit</th>
-      <th>Remove</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="table-secondary" *ngFor="let product of products">
-      <td>{{product.id}}</td>
-      <td>{{product.name}}</td>
-      <td>{{product.description}}</td>
-      <td>{{product.price}}</td>
-      <td>{{product.quantity}}</td>
-      <td><button (click)="updateProduct(product.id)"  class="btn btn-warning" type="submit">Update</button></td>
-      <td><button (click)="deleteProduct(product.id)"class="btn btn-danger" type="submit">Delete</button></td>
+<body>
+  <br>
+  <br><br>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr class="table-success">
+          <th><i>Product Id</i></th>
+          <th><i>Product Name</i></th>
+          <th style="text-align: center;"><i>Description</i></th>
+          <th><i>Price</i></th>
+          <th><i>Stock Availability</i></th>
+          <th>Edit</th>
+          <th>Remove</th>
 
-    </tr>
-  </tbody>
-</table>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-dark" *ngFor="let product of products">
+          <td><b>{{product.id}}</b></td>
+          <td><b><i>{{product.name}}</i></b> <i class="bi bi-tree-fill"></i></td>
+          <td><b><i>{{product.description}}</i></b></td>
+          <td><b><i>{{product.price}}</i></b></td>
+          <td><b><i>{{product.quantity}} Tons</i></b></td>
+          <td><button (click)="updateProduct(product.id)" class="btn btn-outline-info" type="submit"><b><i>Update</i></b></button></td>
+          <td><button (click)="deleteProduct(product.id)" class="btn btn-outline-danger" type="submit"><b><i>Delete</i></b></button></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>

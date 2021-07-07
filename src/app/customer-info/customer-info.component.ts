@@ -30,11 +30,15 @@ export class CustomerInfoComponent implements OnInit {
 
   saveCustomer(addForm: NgForm) {
     this.customerService.createCustomer(this.customer).subscribe(data => { console.log(data);
-      alert("one new customer added");
-      // this.navigateToCustomers();
+      alert("order has been placed succesfully");
+       this.navigateToThanksMessage();
     },
      (error: HttpErrorResponse) => { console.log(error); alert(error.message);addForm.reset();})
 
+  }
+
+  navigateToThanksMessage(){
+    this.router.navigate(['/thanks-message']);
   }
 
 }

@@ -5,31 +5,35 @@
       <i>Forestry Management App</i>
     </a>
   </div>
-</nav>
-<br>
+</nav><br>
 
-<h2>Update Product </h2>
-<form #addForm="ngForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label>Product Name</label>
-    <input type="text" class="form-control" id="name" [(ngModel)]="product.name" name="name" required>
+
+<body>
+  <h2 style="text-align: center;" id="font"><i>UPDATE PRODUCT</i></h2>
+  <div class="container">
+    <form #addForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Product Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="product.name" name="name" required>
+      </div>
+      <br>
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" id="description" [(ngModel)]="product.description" name="description"
+          required>
+      </div>
+      <br>
+      <div class="form-group">
+        <label>Price</label>
+        <input type="email" class="form-control" id="price" [(ngModel)]="product.price" name="price" required>
+      </div>
+      <br>
+      <div class="form-group">
+        <label>Quantity</label>
+        <input type="text" class="form-control" id="address" [(ngModel)]="product.quantity" name="quantity" required>
+      </div>
+      <br>
+      <button [disabled]="addForm.invalid" class="btn btn-outline-success" type="submit">Update</button>
+    </form>
   </div>
-  <br>
-  <div class="form-group">
-    <label>Description</label>
-    <input type="text" class="form-control" id="description" [(ngModel)]="product.description" name="description"
-      required>
-  </div>
-  <br>
-  <div class="form-group">
-    <label>Price</label>
-    <input type="email" class="form-control" id="price" [(ngModel)]="product.price" name="price" required>
-  </div>
-  <br>
-  <div class="form-group">
-    <label>Quantity</label>
-    <input type="text" class="form-control" id="address" [(ngModel)]="product.quantity" name="quantity" required>
-  </div>
-  <br>
-  <button [disabled]="addForm.invalid" class="btn btn-success" type="submit">Update</button>
-</form>
+</body>

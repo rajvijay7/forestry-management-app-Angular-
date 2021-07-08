@@ -7,9 +7,12 @@ import { CartComponent } from './cart/cart.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { LandComponent } from './land/land.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { MaintainProductsComponent } from './maintain-products/maintain-products.component';
 import { OrderComponent } from './order/order.component';
 import { ProductsComponent } from './products/products.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ThanksMessageComponent } from './thanks-message/thanks-message.component';
@@ -17,7 +20,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'products', pathMatch: 'full' },
+  //{ path: '', redirectTo: 'products', pathMatch: 'full' },
   { path: 'products', component: ProductsComponent },
   { path: 'cart', component: CartComponent},
   { path: 'customer-info', component: CustomerInfoComponent},
@@ -33,7 +36,11 @@ const routes: Routes = [
   { path: 'customer-list', component: CustomerListComponent},
   { path: 'add-customer', component: AddCustomerComponent},
   { path: 'view-customer/:id', component: ViewCustomerComponent},
-  { path: 'orders', component: OrderComponent}
+  { path: 'orders', component: OrderComponent},
+  { path:'',component: LoginComponent},
+  { path: 'products/:emailId',component:ProductsComponent},
+  { path: 'registration',component:RegistrationComponent},
+  { path: 'logoutcomponent',component:LogoutComponent}
 
 ];
 

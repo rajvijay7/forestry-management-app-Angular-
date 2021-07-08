@@ -23,6 +23,11 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
+  logout() {
+    this.router.navigate(['/logoutcomponent'])
+}
+
+
    getProducts() {
     this.productService.getProductList().subscribe(data => { this.products = data, console.log(data) });
   }

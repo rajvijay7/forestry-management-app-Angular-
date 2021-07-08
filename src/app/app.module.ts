@@ -19,7 +19,10 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
 import { OrderComponent } from './order/order.component';
-
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -39,14 +42,18 @@ import { OrderComponent } from './order/order.component';
     CustomerListComponent,
     AddCustomerComponent,
     ViewCustomerComponent,
-    OrderComponent
+    OrderComponent,
+    LoginComponent,
+    LogoutComponent,
+    RegistrationComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
 
   exports: [

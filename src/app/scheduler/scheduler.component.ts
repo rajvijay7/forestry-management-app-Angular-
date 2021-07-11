@@ -12,4 +12,8 @@ export class SchedulerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
+  itemImageUrl = '../assets/orders.jpg';
+  itemImageUrl1 = '../assets/contracts.jpg';
 }

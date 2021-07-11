@@ -29,8 +29,6 @@ export class RegistrationService {
   }
 
 
-
-
   public registerUser(user: User): Observable<any> {
     return this.httpClient.post<any>("http://localhost:8083/registration/registration", user)
   }

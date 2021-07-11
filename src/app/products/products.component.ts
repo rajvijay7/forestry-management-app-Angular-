@@ -13,15 +13,12 @@ import { ProductService } from '../product.service';
 export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
-
-
-  // product: Product = new Product();
-  cart: Cart = new Cart();
+  cart: Cart = new Cart();                // for add to cart
   quantity: any = [];
-  // name: string = "";
-  searchProduct: string = "";
-  // message = '';
-  errorMessage: Product = new Product;
+  product: Product = new Product();
+  searchProduct: string = "";             //for filter pipe
+  message = '';
+  errorMessage: Product = new Product;     //for validation
 
 
   constructor(private productService: ProductService, private router: Router, private cartService: CartService) { }
@@ -64,18 +61,26 @@ export class ProductsComponent implements OnInit {
     this.cartService.addToCart(this.cart).subscribe(data => {
       console.log(data);
       alert("one product added to cart");
-      // this.updateQuantity(i, this.product.quantity[i]);
+
+
+
+       this.updateQuantity(this.products[i].quantity,i);
     })
   }
 
 
-  // updateQuantity(i: any ,quantity: any){
-  //   this.product = this.products[i];
-  //   this.product.quantity = quantity;
-  //   this.product.quantity=  parseInt(this.product.quantity) - 1;
-  //   this.productService.UpdateProduct(this.product).subscribe(data => {
-  //   }, error => console.log(error));
-  // }
+  updateQuantity(value: any,i:any){
+
+     this.product.quantity =  value - 1;
+     this.product.name = this.products[i].name;
+     this.product.description = this.products[i].description;
+     this.product.price = this.products[i].price;
+     this.product.id = this.products[i].id;
+     console.log(this.product);
+
+     this.productService.UpdateProduct(this.product).subscribe(data => {
+     }, error => console.log(error));
+   }
 
 
 
@@ -83,20 +88,3 @@ export class ProductsComponent implements OnInit {
 
 
 }
-
-
-
-
-
-///////filter
-
-
-
-
-// viewCustomerById(id: number) {
-//   this.customerService.getCustomerById(id).subscribe(data => {
-//     console.log(data), this.getCustomers();
-//     this.router.navigate(['/customer-details', id]);
-//   },)
-
-// }

@@ -14,7 +14,6 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { LandComponent } from './land/land.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
@@ -42,7 +41,6 @@ import { AddContractComponent } from './add-contract/add-contract.component';
     AddProductComponent,
     UpdateProductComponent,
     LandComponent,
-    SearchBarComponent,
     CustomerListComponent,
     AddCustomerComponent,
     ViewCustomerComponent,

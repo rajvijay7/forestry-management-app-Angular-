@@ -10,6 +10,7 @@ import { ProductService } from '../product.service';
 })
 export class UpdateProductComponent implements OnInit {
   id: number = 0;
+  errorMessage: Product = new Product;
   product: Product = new Product();
   constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) { }
 

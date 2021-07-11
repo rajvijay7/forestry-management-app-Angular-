@@ -6,6 +6,7 @@ import { Customer } from './customer';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CustomerService {
 
   private baseURL = 'http://localhost:8083/customers/';
@@ -21,13 +22,15 @@ export class CustomerService {
   createCustomer(customer: Customer): Observable<Object> {
     return this.httpClient.post(`${this.baseURL}` + 'save', customer);
   }
-  //view Customer records (in Admin dashboard - customer records)
 
+
+  //view Customer records (in Admin dashboard - customer records)
   getCustomerById(id: number): Observable<Customer> {
     return this.httpClient.get<Customer>(`${this.baseURL}` + `/getById/${id}`);
   }
-  //view Customer records (in Admin dashboard - customer records)
 
+
+  //view Customer records (in Admin dashboard - customer records)
   viewCustomerById(id: number): Observable<Customer> {
     return this.httpClient.get<Customer>(`${this.baseURL}` + `/getById/${id}`);
   }

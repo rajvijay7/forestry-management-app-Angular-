@@ -9,8 +9,7 @@ export class Product {
 
   price: string="";
 
-  quantity: number = 0;
-
+  quantity: number = 1;
 
 
 }

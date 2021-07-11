@@ -6,19 +6,20 @@
     </a>
   </div>
 </nav>
-<br>
 
-<h2 style="text-align: center;"><i>ADMIN DASHBOARD</i></h2>
+<body>
+  <br>
+<h2 style="text-align: center;"><i><b>ADMIN DASHBOARD</b></i></h2>
 
 
-<div class="container text-center">
+<div style="padding-left: 250px;" class="container text-center">
   <div class="row">
-    <div class="col-12">
-      <div class="card">
+    <div class="col-9">
+      <div style="background-image: linear-gradient(45deg, rgb(154, 250, 253), rgb(248, 185, 253));"      class="card">
         <div class="card-body">
           <img src="{{itemImageUrl}}" alt="Product" width="200">
           <br><br>
-          <h3 class="card-title">Grocery Management</h3>
+          <h3 class="card-title"><b><i>Grocery Management</i></b></h3>
         </div>
         <div class="card-body">
           <a [routerLink]="['/maintain-products']" class="btn btn-success">Maintain Grocery</a>
@@ -27,16 +28,19 @@
     </div>
   </div>
 </div>
+<br>
 
-<div class="container text-center">
-  <div class="row">
-    <div class="col-12">
+
+
+<div style="padding-left: 250px;" class="container text-center">
+  <div  class="row">
+    <div class="col-9">
       <div class="card">
-        <div class="card">
+        <div style="background-image: linear-gradient(45deg, rgb(110, 247, 252), rgb(247, 154, 255))" class="card">
           <div class="card-body">
             <img src="{{itemImageUrl1}}" alt="Product" width="200">
             <br><br>
-            <h3 class="card-title">Customer Records </h3>
+            <h3 class="card-title"><b><i>Customer Records</i></b> </h3>
           </div>
           <div class="card-body">
             <a [routerLink]="['/customer-list']" class="btn btn-success">Maintainance</a>
@@ -49,3 +53,4 @@
 
 
 
+</body>

@@ -1,4 +1,16 @@
 body{
-  background-color: rgb(253, 243, 229);
-  background-image: linear-gradient(to right, rgb(206, 248, 206) , rgb(252, 252, 220))
+  background-image: linear-gradient(45deg, rgb(195, 252, 110), rgb(154, 205, 255));
+  font-family: "Sansita Swashed", cursive;
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  padding: 10px;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 60px;
+  font-weight: bold;
+  font-family: "Sansita Swashed", cursive;
 }

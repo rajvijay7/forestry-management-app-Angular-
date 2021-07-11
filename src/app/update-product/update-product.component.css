@@ -1,6 +1,16 @@
-#font
-{
-  font-family: "Times New Roman", Times, serif;
-  font-size: larger;
-  font-weight: 900;
+body{
+  background-image: linear-gradient(45deg, rgb(195, 252, 110), rgb(154, 205, 255));
+  font-family: "Sansita Swashed", cursive;
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  padding: 10px;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 60px;
+  font-weight: bold;
+  font-family: "Sansita Swashed", cursive;
 }

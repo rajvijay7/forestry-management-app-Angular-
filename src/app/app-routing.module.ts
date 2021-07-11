@@ -17,7 +17,6 @@ import { OrderComponent } from './order/order.component';
 import { ProductsComponent } from './products/products.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ThanksMessageComponent } from './thanks-message/thanks-message.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
@@ -35,7 +34,6 @@ const routes: Routes = [
   { path: 'scheduler', component: SchedulerComponent},
   { path: 'update-product/:id', component: UpdateProductComponent},
   { path: 'land', component: LandComponent},
-  { path: 'search-bar/:name', component: SearchBarComponent},
   { path: 'cart', component: CartComponent},
   { path: 'customer-list', component: CustomerListComponent},
   { path: 'add-customer', component: AddCustomerComponent},

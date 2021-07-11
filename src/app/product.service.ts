@@ -29,11 +29,6 @@ export class ProductService {
     return this.httpClient.get<Product>(`${this.baseURL}` + `/getById/${id}`);
   }
 
-// get product by NAme in search BAr
-  getProductByName(name: string):Observable<Product>{
-    return this.httpClient.get<Product>(`${this.baseURL}` + `getByName/${name}`);
-  }
-
 
   //Update a product(in admin- grocery management)
   UpdateProduct(product: Product): Observable<Object> {

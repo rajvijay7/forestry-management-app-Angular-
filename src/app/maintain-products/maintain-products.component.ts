@@ -9,7 +9,9 @@ import { ProductService } from '../product.service';
   styleUrls: ['./maintain-products.component.css']
 })
 export class MaintainProductsComponent implements OnInit {
-  products: Product[] | undefined;
+  products: Product[] =[];
+
+  searchProduct: string = "";
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {

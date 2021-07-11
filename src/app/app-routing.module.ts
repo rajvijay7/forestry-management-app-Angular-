@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddContractComponent } from './add-contract/add-contract.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminComponent } from './admin/admin.component';
 import { CartComponent } from './cart/cart.component';
+import { ContractService } from './contract.service';
+import { ContractComponent } from './contract/contract.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { LandComponent } from './land/land.component';
@@ -18,6 +21,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ThanksMessageComponent } from './thanks-message/thanks-message.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
+
 
 const routes: Routes = [
   //{ path: '', redirectTo: 'products', pathMatch: 'full' },
@@ -40,7 +44,9 @@ const routes: Routes = [
   { path:'',component: LoginComponent},
   { path: 'products/:emailId',component:ProductsComponent},
   { path: 'registration',component:RegistrationComponent},
-  { path: 'logoutcomponent',component:LogoutComponent}
+  { path: 'logoutcomponent',component:LogoutComponent},
+  { path: 'contracts',component:ContractComponent},
+  { path: 'add-contract',component:AddContractComponent}
 
 ];
 

@@ -12,54 +12,43 @@
   <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
       <a class="navbar-brand" (click)="getProducts()" style="font-weight: 700;">
-        <i>Forestry Management App </i><i class="bi bi-tree-fill"></i>
+        <i>Forestry Management App  </i><i class="bi bi-tree-fill"></i>
       </a>
 &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-      <h4 id="hover" style="text-align: center;" style="font-weight: 700;" ><i>Products</i>
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-tree-fill"
-          viewBox="0 0 16 16">
-          <path
-            d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z" />
-        </svg>
-      </h4><br>
-
-      <button (click)="logout()" style="margin-left: 150px ;" type="button" class="btn btn-outline-warning"> Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
-      </button>
+      <p id="hover" style="text-align: center; padding-left: 100px;"  ><i><b><b>Products</b></b></i><i class="bi bi-tree-fill"></i></p><br>
 
 
-      <button [routerLink]="['/cart']" style="margin-left: 150px ;" type="button" class="btn btn-dark"> Cart
+
+      <button [routerLink]="['/cart']" style="margin-left: 150px ;" type="button" class="btn btn-dark"> <b><i>Cart</i></b>   &nbsp;
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill"
           viewBox="0 0 16 16">
           <path
             d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
         </svg>
       </button>
+
+      <button (click)="logout()" style="margin-left: 150px ;" type="button" class="btn btn-warning"> <b><i>Logout</i></b> <i class="bi bi-box-arrow-left"></i>
+      </button>
+
     </div>
   </nav>
   <br><br><br>
 
 
 
-  <!-- Heading -->
+<!--filter-->
+<div class="form-group" style="padding-left:500px;">
+<input type="text" class="form-control" placeholder="search products"
+style="width: 300px;" [(ngModel)]="searchProduct"/>
+</div>
+<br><br><br>
 
-  <!-- <h3 id="hover" style="text-align: center; color: aliceblue;" >Products
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-tree-fill"
-      viewBox="0 0 16 16">
-      <path
-        d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z" />
-    </svg>
-  </h3><br> -->
-
-
-
-
-
-  <!--searchBar-->
+  <!-- searchBar
    <form class="example" style="margin:auto;max-width:300px">
     <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="Search products..">
     <button (click)="getByName()" type="submit"><i class="fa fa-search"></i></button>
   </form>
-  <br><br>
+  <br><br> -->
 
 
 
@@ -76,17 +65,68 @@
   <!--Content-->
   <div class="container text-center">
     <div class="row"><br><br><br>
-      <div class="col-4" *ngFor="let product of products; index as i">
+      <div class="col-4" *ngFor="let product of products | productFilter: searchProduct; index as i">
         <div id="border" class="card">
           <div class="card-body">
-            <h2 class="card-title">{{product.name}}  <i class="bi bi-tree-fill"></i> </h2>
+            <h2 class="card-title"><b>{{product.name}} </b> <i class="bi bi-tree-fill"></i> </h2>
             <p class="card-text"> <i><p><b> Description: </b>{{product.description}}</p> </i>
-            <h3>Price: $ {{product.price}} (per ton) </h3>
-            <h5>Stock Availability: {{product.quantity}}</h5>
+            <i><p><b>Price: $ {{product.price}}</b> (per ton)</p></i>
+            <p><i><b>Stock Availability: {{product.quantity}}</b></i></p>
           </div>
-          <div class="card-body">
+
+
+
+
+          <div *ngIf="product.quantity >= 10 " class="card-body">
             <button (click)="addToCart(i)" id="hover" class="btn btn-success">Add To Cart</button>
           </div>
+
+          <div *ngIf="  product.quantity > 0 && product.quantity < 10 "  class="card-body">
+            <div>
+            <button  (click)="addToCart(i)" id="hover" class="btn btn-danger">Add To Cart</button>
+            <p style="color: tomato;" >Hurry up , only few Stocks Available...!! </p>
+          </div>
+          </div>
+
+
+          <div *ngIf="product.quantity === null || product.quantity == 0" class="card-body">
+            <p style="color: red">Currently unavailable.. coming soon </p>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- <div *ngIf="displayButton"; then ifLowStock; else NoStock  class="card-body">
+            <button (click)="addToCart(i)" id="hover" class="btn btn-success">Add To Cart</button>
+          </div>
+
+          <ng-template #ifLowStock>
+            <p style="color: tomato;">Hurry up! Only Few Stocks Available</p>
+          </ng-template>
+
+          <ng-template #Nostock>
+            <p style="color: tomato;">Currently Unavailable.. Coming Soon!!</p>
+          </ng-template> -->
+
+
+
+
+
         </div><br>
       </div>
     </div>

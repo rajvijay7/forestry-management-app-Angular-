@@ -9,7 +9,7 @@ export class Product {
 
   price: string="";
 
-  quantity: string | undefined;
+  quantity: number = 0;
 
 
 

@@ -23,6 +23,10 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SamplePipe } from './sample.pipe';
+import { ProductFilterPipe } from './product-filter.pipe';
+import { ContractComponent } from './contract/contract.component';
+import { AddContractComponent } from './add-contract/add-contract.component';
 
 
 @NgModule({
@@ -45,7 +49,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     OrderComponent,
     LoginComponent,
     LogoutComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    SamplePipe,
+    ProductFilterPipe,
+    ContractComponent,
+    AddContractComponent
 
   ],
   imports: [

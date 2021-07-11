@@ -4,15 +4,15 @@
     <a class="navbar-brand" [routerLink]="['/admin']" style="font-weight: 700;">
       <i>Forestry Management App</i><i class="bi bi-tree-fill"></i>
     </a>
-    <h3 style="text-align: center;"><i>INVENTORY</i> <i class="bi bi-house-fill"></i> </h3>
-    <button [routerLink]="['/add-product']" class="btn btn-outline-primary" type="submit"><b><i>Add New Product</i></b></button>
+    <h3 style="text-align: center;"><i><b>INVENTORY</b></i> &nbsp; <i class="bi bi-house-fill"></i> </h3>
+    <button [routerLink]="['/add-product']" class="btn btn-outline-primary" type="submit"><b><i>Add New
+          Product</i></b></button>
   </div>
 </nav>
 
 
 
 <!--content-->
-
 <body>
   <br>
   <br><br>
@@ -27,7 +27,6 @@
           <th><i>Stock Availability</i></th>
           <th>Edit</th>
           <th>Remove</th>
-
         </tr>
       </thead>
       <tbody>
@@ -37,9 +36,10 @@
           <td><b><i>{{product.description}}</i></b></td>
           <td><b><i>{{product.price}}</i></b></td>
           <td><b><i>{{product.quantity}} Tons</i></b></td>
-          <td><button (click)="updateProduct(product.id)" class="btn btn-outline-info" type="submit"><b><i>Update</i></b></button></td>
-          <td><button (click)="deleteProduct(product.id)" class="btn btn-outline-danger" type="submit"><b><i>Delete</i></b></button></td>
-
+          <td><button (click)="updateProduct(product.id)" class="btn btn-outline-info"
+              type="submit"><b><i>Update</i></b></button></td>
+          <td><button (click)="deleteProduct(product.id)" class="btn btn-outline-danger"
+              type="submit"><b><i>Delete</i></b></button></td>
         </tr>
       </tbody>
     </table>

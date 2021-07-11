@@ -1,9 +1,9 @@
 <!--Navigation Bar-->
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
   <div class="container">
-      <a class="navbar-brand" [routerLink]="['/customer-list']" style="font-weight: 700;">
-          <i>Forestry Management App</i>
-      </a>
+    <a class="navbar-brand" [routerLink]="['/customer-list']" style="font-weight: 700;">
+      <i>Forestry Management App</i>
+    </a>
   </div>
 </nav>
 <br>
@@ -11,53 +11,177 @@
 
 
 <!--heading-->
-<h2>Add New Customer <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
-  <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
-  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-</svg> </h2>
+<h2>Add New Customer <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+    class="bi bi-cart-plus" viewBox="0 0 16 16">
+    <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+    <path
+      d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+  </svg> </h2>
 
 
 
 <!--content-->
-<form #addForm="ngForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-      <label>Customer Name</label>
-      <input type="text" class="form-control" id="name" [(ngModel)]="customer.name" name="name" required>
-  </div>
-  <br>
-  <br>
-  <div class="form-group">
-      <label>Email</label>
-      <input type="email" class="form-control" id="email" [(ngModel)]="customer.email" name="email" required>
-  </div>
-  <br>
-  <div class="form-group">
-      <label>Password</label>
-      <input type="password" class="form-control" id="password" [(ngModel)]="customer.password" name="password" required>
-  </div>
-  <br>
-  <div class="form-group">
-      <label> Address </label>
-      <input type="text" class="form-control" id="address" [(ngModel)]="customer.address" name="address" required>
-  </div>
-  <br>
 
-  <div class="form-group">
-      <label> Town </label>
-      <input type="text" class="form-control" id="town" [(ngModel)]="customer.town" name="town" required>
-  </div>
-  <br>
+<div class="container">
+  <h3 style="text-align: center;">ADD CUSTOMER PAGE</h3>
+<form #RegistrationForm="ngForm" (ngSubmit)="saveCustomer()">
 
-  <div class="form-group">
-      <label> Postal Code </label>
-      <input type="text" class="form-control" id="postalcode" [(ngModel)]="customer.postalcode" name="postalcode" required>
-  </div>
-  <br>
 
-  <div class="form-group">
-      <label> Contact </label>
-      <input type="text" class="form-control" id="contact" [(ngModel)]="customer.contact" name="contact" required>
+<!-- FirstName-->
+<div class="form-group">
+
+  <label for="firstName"><b>FirstName: <sup style="color: red;">*</sup></b></label>
+  <input type="text" class="form-control" id="firstName" placeholder="Enter firstName" name="firstName"
+    [(ngModel)]="registerUserData.firstName" required #firstName="ngModel"
+    [class.is-invalid]="firstName.invalid && firstName.touched">
+  <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched"> FirstName is required</small>
+</div>
+<div class="col-10" *ngIf="errorMessage?.firstName">
+  <span class="text text-danger">{{errorMessage.firstName}}</span>
+</div>
+
+<!-- LastName -->
+<div class="form-group">
+  <label for="LastName"><b>LastName: <sup style="color: red;">*</sup></b></label>
+
+  <input type="text" class="form-control" id="lastName" placeholder="Enter lastName" name="lastName"
+    [(ngModel)]="registerUserData.lastName" required #lastName="ngModel"
+    [class.is-invalid]="lastName.invalid && lastName.touched">
+  <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched"> LastName is required</small>
+</div>
+<div class="col-10" *ngIf="errorMessage?.lastName">
+  <span class="text text-danger">{{errorMessage.lastName}}</span>
+</div>
+
+<!-- Gender-->
+<div class="form-group">
+  <label for="gender"><b>Gender:</b></label>
+  <div>
+    <input id="male" type="radio" value="male" name="gender" [(ngModel)]="registerUserData.gender">
+    <label for="male">Male</label>&nbsp;&nbsp;
+
+    <input id="female" type="radio" value="female" name="gender" [(ngModel)]="registerUserData.gender">
+    <label for="female">Female</label>
   </div>
-  <br>
-  <button [disabled]="addForm.invalid" class="btn btn-success" type="submit">Add</button>
+</div>
+
+
+
+<!-- EmailId -->
+<div class="form-group">
+  <label for="email"><b>Email: <sup style="color: red;">*</sup></b></label>
+  <input type="email" class="form-control" id="email" placeholder="Enter email" name="emailId"
+    [(ngModel)]="registerUserData.email" required #emailId="ngModel"
+    [class.is-invalid]="emailId.invalid && emailId.touched">
+  <!-- <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched"> emailId is required</small>   pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$" -->
+  <div *ngIf="emailId.errors &&(emailId.invalid && emailId.touched)">
+    <small class="text-danger" *ngIf="emailId.errors.required"> EmailId is required</small>
+    <small class="text-danger" *ngIf="emailId.errors.pattern"> Invalid MAilId </small>
+  </div>
+</div>
+<div class="col-10" *ngIf="errorMessage?.email">
+  <span class="text text-danger">{{errorMessage.email}}</span>
+</div>
+<!-- UserName -->
+<div class="form-group">
+  <label for="userName"><b>UserName: <sup style="color: red;">*</sup></b></label>
+  <input type="text" class="form-control" id="userName" placeholder="Enter userName" name="userName"
+    [(ngModel)]="registerUserData.userName" required>
+</div>
+<div class="col-10" *ngIf="errorMessage?.userName">
+  <span class="text text-danger">{{errorMessage.userName}}</span>
+</div>
+
+<!--PassWord-->
+<div class="form-group">
+  <label for="pwd"><b>Password: <sup style="color: red;">*</sup></b></label> <i class="material-icons" matsuffix
+    (click)="hide =!hide"> {{hide ? 'visibility' : 'visibility_off'}}</i>
+  <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+  <input type="password" [type]="hide ? 'password' : 'text'" class="form-control" id="password"
+    placeholder="Enter password" name="password" [(ngModel)]="registerUserData.password" required #password="ngModel"
+    [class.is-invalid]="password.invalid && password.touched">
+  <i class="material-icons" matsuffix (click)="hide =!hide"> {{hide ? 'visibility' : 'visibility_off'}}</i>
+
+  <small class="text-danger" [class.d-none]="password.valid || password.untouched"> Password is required</small>
+</div>
+
+<div class="col-10" *ngIf="errorMessage?.password">
+  <span class="text text-danger">{{errorMessage.password}}</span>
+</div>
+
+<div class="form-group">
+  <label for="confirmPassword"><b>confirmPassword: <sup style="color: red;">*</sup></b></label> <i
+    class="material-icons" matsuffix (click)="hide =!hide"> {{hide ? 'visibility' : 'visibility_off'}}</i>
+  <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+  <input type="password" [type]="hide ? 'password' : 'text'" class="form-control" id="confirmPassword"
+    placeholder="Enter confirmPassword" name="confirmPassword" [(ngModel)]="registerUserData.confirmPassword" required
+    #confirmPassword="ngModel" [class.is-invalid]="confirmPassword.invalid && confirmPassword.touched">
+
+
+  <small class="text-danger" [class.d-none]="confirmPassword.valid || confirmPassword.untouched"> confirmPassword is
+    required</small>
+</div>
+
+<div class="col-10" *ngIf="errorMessage?.password">
+  <span class="text text-danger">{{errorMessage.password}}</span>
+</div>
+
+
+
+<!-- Address-->
+<div class="form-group">
+  <label for="address"><b>Address:</b></label>
+  <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" required
+    [(ngModel)]="registerUserData.address">
+</div>
+
+
+<!-- Town-->
+<div class="form-group">
+  <label for="town"><b>Town:</b></label>
+  <input type="text" class="form-control" id="town" placeholder="Enter town" name="town" required
+    [(ngModel)]="registerUserData.town">
+</div>
+
+
+<!-- Postal Code-->
+<div class="form-group">
+  <label for="postalcode"><b>PostalCode:</b></label>
+  <input type="text" class="form-control" id="postalcode" placeholder="Enter postalcode" name="postalcode" required
+    [(ngModel)]="registerUserData.postal_code">
+</div>
+
+
+
+
+<!-- Contact-->
+<div class="form-group">
+  <label for="contact"><b>Contact</b></label>
+  <input type="text" class="form-control" id="contact" placeholder="Enter contact" name="contact" required
+    [(ngModel)]="registerUserData.contact">
+</div>
+
+
+
+
+
+
+<!-- Register Button -->
+<button [disabled]="RegistrationForm.form.invalid" type="submit"
+  class="btn btn-primary btn-lg btn-block">ADD</button><br><br>
+
+
+<div class="alert alert-warning" *ngIf="RegistrationForm.submitted && isSignUpFailed">
+   failed!<br />{{errorMessage}}
+</div>
+
+
+<div class="alert alert-success" *ngIf="isSuccessful">
+  ADDING CUSTOMER is successful!
+</div>
+
+
+
 </form>
+<p style="color: red;"><i> All the fields with (*) are MANDATORY </i></p>
+</div>

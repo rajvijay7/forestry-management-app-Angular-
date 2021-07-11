@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Customer } from '../customer';
 import { CustomerService } from '../customer.service';
+import { RegistrationService } from '../registration.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-add-customer',
@@ -12,25 +14,40 @@ import { CustomerService } from '../customer.service';
 })
 export class AddCustomerComponent implements OnInit {
 
-  customer: Customer = new Customer();
   addForm!: NgForm;
-  constructor(private customerService: CustomerService, private router: Router) { }
+  registerUserData = new User();
+  message = '';
+  errorMessage: User = new User;
+
+  isSuccessful = false;
+  isSignUpFailed = false;
+
+hide=true;
+  constructor(private registerService: RegistrationService, private router: Router) { }
 
 
   ngOnInit(): void {
-    this.customer;
+    this.saveCustomer;
   }
 
-  onSubmit() {
-    console.log('inside onsubmit method..')
-    this.saveCustomer(this.addForm);
-  }
 
-  saveCustomer(addForm: NgForm) {
-    this.customerService.createCustomer(this.customer).subscribe(data => { console.log(data);
+  saveCustomer() {
+    this.registerService.registerUser(this.registerUserData).subscribe(data => { console.log(data);
+      console.log(this.registerUserData);
+        //  this.message="Registration successfull";
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
       alert("one new customer added");
-      this.navigateToCustomers(); },
-     (error: HttpErrorResponse) => { console.log(error); alert(error.message);addForm.reset();})
+if(this.isSuccessful){
+      this.navigateToCustomers();
+}
+
+    },
+     (error: HttpErrorResponse) => { console.log(error); alert(error.message);
+      console.log("error exist");
+      console.log(this.registerUserData)
+      this.errorMessage = error.error;
+      this.isSignUpFailed = true;})
 
   }
 

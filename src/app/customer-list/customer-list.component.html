@@ -22,12 +22,12 @@
       </tr>
   </thead>
   <tbody>
-      <tr class="table-secondary" *ngFor="let customer of customers">
-          <td>{{customer.id}}</td>
-          <td>{{customer.name}}</td>
-          <td>{{customer.email}}</td>
+      <tr class="table-secondary" *ngFor="let user of users">
+          <td>{{user.id}}</td>
+          <td>{{user.firstName}} {{user.lastName}}</td>
+          <td>{{user.email}}</td>
           <td>
-              <button (click)="viewCustomerById(customer.id) " class="btn btn-info " type="submit ">View</button>
+              <button (click)="viewCustomerById(user.id) " class="btn btn-info " type="submit ">View</button>
           </td>
       </tr>
   </tbody>

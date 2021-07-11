@@ -13,6 +13,13 @@ import { ProductService } from '../product.service';
 export class AddProductComponent implements OnInit {
   product: Product = new Product();
   addForm!: NgForm;
+  message = '';
+  errorMessage: Product = new Product;
+  isSuccessful = false;
+  isAddProductFailed = false;
+  hide=true;
+
+
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
@@ -28,10 +35,18 @@ export class AddProductComponent implements OnInit {
   saveProduct(addForm: NgForm) {
     this.productService.createProduct(this.product).subscribe(data => {
       console.log(data);
-      alert("one new product added");
+      this.isSuccessful = true;
+      this.isAddProductFailed = false;
+      if(this.isSuccessful){
       this.navigateToProducts();
+      }
     },
-      (error: HttpErrorResponse) => { console.log(error); alert(error.message); addForm.reset(); })
+      (error: HttpErrorResponse) => {
+        console.log(error);
+        alert(error.message);
+        this.errorMessage=error.error;
+        this.isAddProductFailed = true;
+        addForm.reset(); })
 
   }
 

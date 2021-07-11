@@ -3,9 +3,12 @@ export class User {
   firstName:string = "";
   lastName:string ="";
   gender:String | undefined ;
-  address:string | undefined ;
   email:string ="";
   userName:string ="";
   password:string ="";
   confirmPassword:string ="";
+  address:string | undefined ;
+  town: string ="";
+  postal_code: string ="";
+  contact: string ="";
 }

@@ -14,15 +14,11 @@ export class RegistrationComponent implements OnInit {
   registerUserData = new User();
   message = '';
   errorMessage: User = new User;
-
   isSuccessful = false;
   isSignUpFailed = false;
 
 hide=true;
-  constructor(
-    private registerService: RegistrationService,
-    private router: Router
-  ) { }
+  constructor(private registerService: RegistrationService, private router: Router) { }
 
   ngOnInit(): void {
   }

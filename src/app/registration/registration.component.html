@@ -35,19 +35,14 @@
   <div class="form-group">
     <label for="gender"><b>Gender:</b></label>
     <div>
-      <input id="male" type="radio" value="male" name="gender">
+      <input id="male" type="radio" value="male" name="gender" [(ngModel)]="registerUserData.gender">
       <label for="male">Male</label>&nbsp;&nbsp;
 
-      <input id="female" type="radio" value="female" name="gender">
+      <input id="female" type="radio" value="female" name="gender" [(ngModel)]="registerUserData.gender">
       <label for="female">Female</label>
     </div>
   </div>
 
-  <!-- Address-->
-  <div class="form-group">
-    <label for="address"><b>Address:</b></label>
-    <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" required>
-  </div>
 
 
   <!-- EmailId -->
@@ -105,6 +100,40 @@
   <div class="col-10" *ngIf="errorMessage?.password">
     <span class="text text-danger">{{errorMessage.password}}</span>
   </div>
+
+
+
+ <!-- Address-->
+ <div class="form-group">
+  <label for="address"><b>Address:</b></label>
+  <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" required  [(ngModel)]="registerUserData.address">
+</div>
+
+
+ <!-- Town-->
+ <div class="form-group">
+  <label for="town"><b>Town:</b></label>
+  <input type="text" class="form-control" id="town" placeholder="Enter town" name="town" required  [(ngModel)]="registerUserData.town">
+</div>
+
+
+ <!-- Postal Code-->
+ <div class="form-group">
+  <label for="postalcode"><b>postalcode:</b></label>
+  <input type="text" class="form-control" id="postalcode" placeholder="Enter postalcode" name="postalcode" required  [(ngModel)]="registerUserData.postal_code">
+</div>
+
+
+
+
+ <!-- Contact-->
+ <div class="form-group">
+  <label for="contact"><b>Contact</b></label>
+  <input type="text" class="form-control" id="contact" placeholder="Enter contact" name="contact" required  [(ngModel)]="registerUserData.contact">
+</div>
+
+
+
 
 
 

@@ -16,8 +16,15 @@ export class MaintainProductsComponent implements OnInit {
     this.getProducts();
   }
 
+
   private getProducts() {
-    this.productService.getProductList().subscribe(data => { this.products = data, console.log(data) });
+    this.productService.getProductList().subscribe(data => {
+       this.products = data,
+        console.log(data) },
+        error => {
+          console.log(error)
+        }
+        );
   }
 
 
@@ -31,7 +38,11 @@ export class MaintainProductsComponent implements OnInit {
       console.log(data),
         alert("Delete this product?");
       this.getProducts();
-    }, error => console.log(console.error))
+    }, error => {console.log(error)})
   }
+
+
+
+
 
 }

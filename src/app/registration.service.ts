@@ -11,10 +11,23 @@ export class RegistrationService {
 
   constructor(private httpClient: HttpClient) { }
 
+  private baseURL = 'http://localhost:8083/registration/';
 
   public loginUserFromRemote(login: Login): Observable<any> {
     return this.httpClient.post<any>("http://localhost:8083/registration/login", login)
   }
+
+
+  //List All  Customers in admin dashBoard
+  getCustomerList(): Observable<User[]> {
+    return this.httpClient.get<User[]>("http://localhost:8083/registration/getAll");
+  }
+
+
+  getCustomerById(id: number): Observable<User> {
+    return this.httpClient.get<User>(`${this.baseURL}` + `/getById/${id}`);
+  }
+
 
 
 
